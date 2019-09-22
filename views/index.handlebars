@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <img src='/assets/images/burger.png' width="150" height="150" />
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <h2>Eat Da Burger!</h2>
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row">    
+    <div class="col-6">
+        <ol class="list-group">
+            {{#each burgers}}            
+                <div class="row" style="margin-bottom: 10px">
+                    <div class="col-9">
+                        <li class="list-group-item">{{this.burger_name}}</li>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" id={{this.id}} class="btn btn-primary btn-devour" style="float: right">Devour it</button>
+                    </div>
+                </div>
+            {{/each}}
+        </ol>
+    </div>
+    
+    <div class="col-6">
+        
+        <ol class="list-group">
+            {{#each devoured_burgers}}
+            <div class="row" style="margin-bottom: 10px">
+                <div class="col-9 offset-md-3">
+                    <li id={{this.id}} class="list-group-item dev" style="text-align: left; cursor: pointer" title="Click to remove">{{math @index "+" 1}} {{this.burger_name}}</li>
+                </div>
+            </div>
+            {{/each}}
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <form class="create-form">
+
+            <div class="form-group">
+                <textarea class="form-control" id="burger" name="name" rows="1"></textarea>
+                <small id="textHelp" class="form-text text-muted">Enter a burger you want to eat, then click the Submit
+                    button</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
